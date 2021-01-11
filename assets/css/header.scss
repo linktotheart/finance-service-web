@@ -1,0 +1,92 @@
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    nav.navbar{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 1rem 0;
+        .logo{
+            max-width: 125px;
+            // margin-top: -.5rem;
+            // margin-bottom: -.5rem;
+            margin-top: -10px;
+            .logo-white{
+                display: block;
+            }
+            .logo-dark{
+                display: none;
+            }
+        }
+        .nav{
+            flex: 1;
+            @include mediaq($lg){
+                display: none;
+            }
+            .nav-item{
+                &:not(:last-child){
+                    margin-right: 1.5rem;
+                }
+                .nav-link, .btn{
+                    color: #fff;
+                    font-size: 15px;
+                    padding: 0.5rem 1.25rem;
+                }
+                .btn{
+                    @include mediaq($lg){
+                        display: none;
+                    }
+                    &:hover{
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .nav-toggler{
+            display: none;
+            @include mediaq($lg){
+                display: inline-block;
+                height: 2.5rem;
+                width: 2.5rem;
+                border-radius: 50%;
+                background-color: $white;
+                text-align: center;
+                box-shadow: 0 .25rem .75rem rgba($grey, 0.3);
+
+                i{
+                    color: $grey;
+                    font-size: 1.5rem;
+                    line-height: 2.5rem;
+                }
+            }
+        }
+        &.dark{
+            .logo{
+                .logo-white{
+                    display: none;
+                }
+                .logo-dark{
+                    display: block;
+                }
+            }
+
+            .nav{
+                flex: 1;
+                .nav-item{
+                    &:not(:last-child){
+                        margin-right: 1.5rem;
+                    }
+                    .nav-link, .btn{
+                        color: #454545;
+                    }
+                    .btn{
+                        border-color: #454545;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+$blue: #087CA7;
+$purple: #AF2BBF;
+$dark-purple: #231651;
+$green: #00ad6d;
+$yellow: #ce9a00;
+$red: #CC3363;
+$border-color: #DADCE0;
+$text-color: #333;
+$body-color: #4A4A4A;
+$white: #fff;
+$black: #1F2430;
+$grey: #51596C;
+$dark-grey: #313D55;
+$light: #8C97AC;
+
+  /////////// device width and screensize ////////////////
+////////// variables media queries 
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xx: 1300px;
+
+
+ 
+.bg-purple{
+background-color: $dark-purple;
+}
+
+.bg-green{
+    background: $green;
+}
+
+.bg-red{
+    background: $red;
+}
+
+.bg-yellow{
+    background: $yellow;
+}
+
+.bg-grey{
+    background: #f4f4f4;
+} 
+
+.bg-black{
+    background: $black;
+}
+@mixin header {
+    font-family: 'Oswald', sans-serif;
+}
+@mixin badge {
+    display: inline-block;
+    padding: 0.25rem .5rem;
+    background: rgba(219, 224, 221, 0.2);
+    box-shadow: 0px 9px 4px rgba(0, 0, 0, 0.03);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: .5px;
+    font-size: .8rem;
+}
+
+@mixin mediaq($xy) {
+    @media screen and (max-width: $xy){
+        @content; 
+    }
+ }
+
+ .btn{
+     @include header;
+ }

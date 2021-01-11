@@ -1,0 +1,163 @@
+.hero{
+    background-color: rgba($blue, .9);
+    padding-top:  3rem;
+    height: 100vh;
+    @include mediaq($xl){
+        padding-top:  1rem;
+    }
+    @include mediaq($md){
+        padding-top: 5rem;
+        height: auto;
+        padding-bottom: 5rem;
+    }
+    &-text{
+        margin-top: 60px;
+        @include mediaq($xl){
+            margin-top: 45px;
+        }
+        @include mediaq($sm){
+            margin-top: 5px;
+        }
+        .badge-white{
+           @include badge;
+        }
+        .display-4{
+            font-size: 52px;
+            font-weight: 500;
+            max-width: 45%;
+            text-transform: capitalize;
+            margin-bottom: 0;
+            @include mediaq($lg){
+                max-width: 70%;
+            }
+            @include mediaq($md){
+                font-size: 46px;
+                max-width: 65%;
+            }
+            @include mediaq($sm){
+                font-size: 36px;
+                max-width: 85%;
+            }
+        }
+    }
+
+    .box{
+        margin-top: -9.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 20px 20px;
+        grid-template-areas:
+          ". . card4"
+          "card1 card2 card3";
+          justify-items: start;
+          align-items: self-start;
+          @include mediaq($md){
+              gap: 16px 16px;
+          }
+          @include mediaq($sm){
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 2rem ;
+        }
+        &-card{
+            @include mediaq($sm){
+                flex: 0 0 calc(50% - .5rem);
+                max-width: 49%;
+                margin: 0 !important;
+                padding: 1rem;
+            }
+            display: flex;
+            padding: 1.25rem;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(31, 36, 48, 0.25);
+            h2.text-white{
+                font-size: 36px;
+                line-height: 36px;
+                letter-spacing: 1px;
+                @include mediaq($md){
+                    font-size: 28px;
+                    line-height: 28px;
+                    margin-bottom: 1rem !important;
+                }
+                @include mediaq($sm){
+                    font-size: 22px;
+                }
+            }
+            h5.text-white{
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 24px;
+                letter-spacing: 0.1px;
+                margin-bottom: 0;
+                @include mediaq($sm){
+                    font-size: 16px;
+                }
+            }
+            .btn-outline-light{
+                font-size: .935rem;
+                @include mediaq($md){
+                    margin-bottom: 1rem !important;
+                }
+                @include mediaq($sm){
+                    font-size: 0.895rem;
+                }
+            }
+            .img{
+                position: relative;
+                pointer-events: none;
+
+                @include mediaq($lg){
+                    display: none;
+                    margin: 0;
+                }
+            }
+
+            ///////////////////  box cards indivivdual css////////////////////////////////// 
+            &.one{
+                grid-area: card1;
+                .img{
+                    margin-top: -2rem;
+                    margin-left: -1rem;
+                    margin-bottom: -1rem;
+                    margin-right: 1rem;
+                }
+            }
+            &.two{
+                flex-direction: column;
+                grid-area: card2;
+                margin: auto;
+                margin-top: -4.5rem;
+                .img{
+                    top: -1.25rem;
+                    left: -1.3252rem;
+                    margin-bottom: -9rem;
+                }
+            }
+            &.three{
+                flex-direction: row-reverse;
+                margin-left: -1rem;
+                grid-area: card4;
+                @include mediaq($xl){
+                    margin-left: 1rem;
+                }
+                @include mediaq($sm){
+                    flex-direction: row;
+                    margin: 0;
+                }
+                .img{
+                    top: -20px;
+                    margin-right: -3rem;
+                    margin-bottom: -3rem;
+                }
+            }
+            &.four{
+                flex-direction: row-reverse;
+                grid-area: card3;
+                .img{
+                    margin-right: -2rem;
+                }
+            }
+        }
+    }
+}
