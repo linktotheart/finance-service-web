@@ -2,8 +2,9 @@
     background-color: rgba($blue, .9);
     padding-top:  3rem;
     height: 100vh;
+    position: relative;
     @include mediaq($xl){
-        padding-top:  1rem;
+        padding-top:  2rem;
     }
     @include mediaq($md){
         padding-top: 5rem;
@@ -96,11 +97,14 @@
             }
             .btn-outline-light{
                 font-size: .935rem;
+                border-width: 2px;
                 @include mediaq($md){
                     margin-bottom: 1rem !important;
                 }
                 @include mediaq($sm){
                     font-size: 0.895rem;
+                    border-width: 1px;
+
                 }
             }
             .img{
@@ -154,10 +158,33 @@
             &.four{
                 flex-direction: row-reverse;
                 grid-area: card3;
+                @include mediaq($sm){
+                    flex-direction: row;
+                    margin: 0;
+                }
                 .img{
                     margin-right: -2rem;
                 }
             }
+        }
+    }
+
+    .bg-bal{
+        background: rgba(167, 206, 203, 0.123);
+        padding-bottom: 3rem;
+        position: absolute;
+        &.one{
+            top: 0;
+            width: 30%;
+            height: 530px;
+            right: 3rem;
+
+        }
+        &.two{
+            bottom: 0;
+            height: 25%;
+            width: 30%;
+            left: 15%;
         }
     }
 }

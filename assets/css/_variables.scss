@@ -15,8 +15,8 @@ $light: #8C97AC;
 
   /////////// device width and screensize ////////////////
 ////////// variables media queries 
-$sm: 576px;
-$md: 768px;
+$sm: 577px;
+$md: 769px;
 $lg: 992px;
 $xl: 1200px;
 $xx: 1300px;
@@ -65,7 +65,16 @@ background-color: $dark-purple;
         @content; 
     }
  }
-
+ a{
+    color: $blue;
+}
  .btn{
      @include header;
+ }
+ .border-blue{
+     display: block;
+     margin: 3rem auto 0;
+     width: 99%;
+     height: .125rem;
+     background-color: $blue;
  }

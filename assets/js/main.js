@@ -12,6 +12,38 @@ $(document).ready(function() {
     });
 
     
+    $('#mega-menu .mega-link').on('mouseover click', function(){
+        $(this).addClass('active').siblings().removeClass('active').children().removeClass('active');
+        $(this).children().addClass('active');
+        // console.log(this);
+        // console.log(this.next());
+        if ($(this).hasClass('purple')) $("#mega-menu").css("background", "#AF2BBF") 
+        if ($(this).hasClass('red')) $("#mega-menu").css("background", " #CC3363") 
+        if ($(this).hasClass('green')) $("#mega-menu").css("background", "#00ad6d") 
+        if ($(this).hasClass('yellow')) $("#mega-menu").css("background", "#ce9a00") 
+    })
+
+
+
+    $('#nav-toggler:not(opened)').click(function(){
+        $(this).toggleClass('opened');
+        $('#mega-menu').toggleClass('show');
+        $('body').toggleClass('scroll-lock');
+    });
+
+
+
+    $(document).on('keydown', function(event) {
+        if (event.key == "Escape") {
+            CloseService()
+        }
+    });
+
+    function CloseService() {
+        $('#mega-menu').removeClass('show');
+        $('body').removeClass('scroll-lock');
+      }
+
     function bodyPadding() {
        var footerHeight = $('footer.footer').outerHeight();
        console.log(footerHeight)
@@ -28,41 +60,41 @@ $(document).ready(function() {
         $(window).scroll(function () {
             var scroll = $(window).scrollTop();
             if (scroll >= whiteStart) {
-                $("nav.navbar, #sidebar").addClass("dark");
+                $("nav.navbar").addClass("dark");
             }
             else {
-                $("nav.navbar,  #sidebar").removeClass("dark");
+                $("nav.navbar").removeClass("dark");
 
             }
         });
      }
      darkToLight();
 
+
+
+     
+
+      function calcLeft() {
+          var leftP = $('.container').offset().left;
+          console.log(leftP);
+          $('#sidebar').css("left", leftP + 40);
+        }
+        calcLeft();
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////// 
+//////////////////////////.. window resize resposnive ..///////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
     $(window).resize(function () {
         bodyPadding();
         darkToLight();
+        calcLeft();
       })
-
-
-    $('#mega-menu .mega-link').on('mouseover click', function(){
-        $(this).addClass('active').siblings().removeClass('active').children().removeClass('active');
-        $(this).children().addClass('active');
-        // console.log(this);
-        // console.log(this.next());
-        if ($(this).hasClass('purple')) $("#mega-menu").css("background", "#AF2BBF") 
-        if ($(this).hasClass('red')) $("#mega-menu").css("background", " #CC3363") 
-        if ($(this).hasClass('green')) $("#mega-menu").css("background", "#00ad6d") 
-        if ($(this).hasClass('yellow')) $("#mega-menu").css("background", "#ce9a00") 
-    })
-
-
-
-    $('#service-link').click(function(){
-        $('#mega-menu').addClass('show');
-    });
-    $('#mega-menu .mega-close').click(function(){
-        $('#mega-menu').removeClass('show');
-    });
 
 }) ////// document.ready.closes.here /////// 
 
