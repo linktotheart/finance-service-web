@@ -1,3 +1,7 @@
+$(document).ready(function(){
+    $('#preloader').fadeOut(200);
+    $('body').removeClass('scroll-lock');
+});
 $(document).ready(function() {
     ///// scroll on click 
     $('.scroll-to').on('click', function() {
@@ -82,7 +86,11 @@ $(document).ready(function() {
         calcLeft();
 
 
-
+///////////// sidebar toggle 
+$('.sidebar-toggle').click(function () {
+    $(this).next().slideToggle();
+    
+  })
 
 
 

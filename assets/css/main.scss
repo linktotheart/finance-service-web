@@ -15,6 +15,7 @@ body{
         background-color: $white;
         position: relative;
         z-index: 2;
+        min-height: 80vh;
     }
     &.scroll-lock{
         overflow: hidden;
@@ -573,30 +574,12 @@ footer.footer {
                 font-weight: normal;
             }
 
-           ul{
-                margin-bottom: 2rem;
-                li{ font-weight: 400;
-                    padding-bottom: 1.5rem;
-                    color: $body-color;
-                    list-style-type: none;
-                    position: relative;
-                    padding-left: 1.5rem;
-                    &::before{
-                        position: absolute;
-                        content: '';
-                        top: 0.5rem;
-                        left: 0.25rem;
-                        width: .5rem;
-                        height: 0.5rem;
-                        background-color: $blue;
-                    }
-                }
-            }
+           
         }
     }
 }
 
-.all-blogs + .latest .blog-card .img{
+.all-blogs,.service + .latest .blog-card .img{
     max-width: 100%;
     margin: 0 0 1.25rem;
 }
@@ -606,21 +589,38 @@ footer.footer {
     position: relative;
     .bg-blue{
         position: absolute;
-        height: 480px;
+        min-height: 480px;
         width: 58.333333%;
         background: #087CA7;
         top: 4rem;
         left: 0;
+        @include mediaq($lg){
+            min-height: 480px;
+            width: 98.333333%;
+
+        }
     }
     .page-header{
         padding: 3rem 0;
         .badge-white{
             @include badge;
             margin: 1.5rem 0;
+
+            @include mediaq($lg){
+                margin: 0 0 1.25rem;
+            }
          }
         .display-4{
             max-width: 60%;
             margin-bottom: 1.5rem;
+            @include mediaq($xl){
+                max-width: 100%;
+                font-size: 3rem;
+            }
+            @include mediaq($md){
+                max-width: 100%;
+                font-size: 2.25rem;
+            }
         }
         .scroll{
             color: #fff;
@@ -634,6 +634,11 @@ footer.footer {
         top: 3rem;
         padding-top: 3rem;
         z-index: -1;
+        @include mediaq($lg){
+            z-index: 2;
+            top: -1rem;
+            padding: 1.5rem;
+        }
         img{
             z-index: 5;
         }
@@ -641,10 +646,16 @@ footer.footer {
 
     .service-wrapper{
         padding-top: 8rem;
-
+        @include mediaq($lg){
+            padding-top: 3rem;
+        }
         h2,.h1{
             font-size: 2.5rem;
             margin-bottom: 1.75rem;
+
+            @include mediaq($lg){
+                font-size: 1.752rem;
+            }
         }
 
         p{
@@ -672,11 +683,11 @@ footer.footer {
                 &::before{
                     width: 80px;
                     height: 80px;
-                    top: 0;
-                    left: .5rem;
+                    top: 0.5rem;
+                    left: 0rem;
                     content: '';
                     position: absolute;
-                    background-color: #f2f2f266;
+                    background-color: #f2f2f288;
                     border-radius: 50%;
                     z-index: -1;
                 }
@@ -685,35 +696,6 @@ footer.footer {
                 font-size: 20px;
                 color: $blue;
                 margin-bottom: 2rem;
-            }
-        }
-
-        .service-row .card{
-            height: calc(100% - 2rem);
-            margin-bottom: 2rem;
-            .card-body{
-                padding-top: 5rem;
-                .card-header{
-                    background:  #fff;
-                    border: 1px solid rgba($border-color, 1);
-                    position: absolute;
-                    top: 1rem;
-                    min-width: 60%;
-                    letter-spacing: .5px;
-                    left: -.5rem;
-                    transition: 0.3s ease;
-                    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
-                    h4{margin-bottom: 0;}
-                }
-                p{margin-bottom: 1rem; font-size: 16px;}
-            }
-            &:hover{ 
-                box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
-
-                .card-header{
-                    box-shadow:  -5px 5px 0px $blue, 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-                }
             }
         }
 
@@ -747,6 +729,187 @@ footer.footer {
                 }
             }
 
+        }
+    }
+
+    .service-row .card{
+        height: calc(100% - 2rem);
+        margin-bottom: 2rem;
+        .card-body{
+            padding-top: 5rem;
+            .card-header{
+                background:  #fff;
+                border: 1px solid rgba($border-color, 1);
+                position: absolute;
+                top: 1rem;
+                min-width: 60%;
+                max-width: 100%;
+                letter-spacing: .5px;
+                left: -.5rem;
+                transition: 0.3s ease;
+                box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+                h4{margin-bottom: 0;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;            }
+            }
+            p{margin-bottom: 1rem; font-size: 16px; 
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;  
+                overflow: hidden;
+            @include mediaq($md){
+                -webkit-line-clamp: 5;
+
+            }}
+        }
+        &:hover{ 
+            box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
+
+            .card-header{
+                box-shadow:  -5px 5px 0px $blue, 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+            }
+        }
+    }
+
+    .banking{
+        margin-top: 100px;
+        padding-bottom: 50px;
+        h4{
+            text-transform: capitalize;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+        }
+        .wrap{
+            margin-bottom: 2rem;
+            height: calc(100% - 2rem);
+            .icon{
+                margin-bottom: 1.25rem;
+            }
+            h3{
+                font-size: 1.35rem;
+                margin-bottom: 1.25rem;
+
+            }
+            p{
+                font-size: .995rem;
+            }
+        }
+
+        .blue-card{
+            background: $blue;
+            height: 100%;
+            padding: 0 2rem 2rem;
+            @include mediaq($md){
+                padding: 0 1rem 2rem;
+            }
+            picture{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin: -1rem 0;
+            }
+        }
+    }
+}
+
+///////// syndication page
+.synd{
+    padding-top: 120px;
+    padding-bottom: 100px;
+    .sidebar{
+        position: sticky;
+        top: 100px;
+        padding: 1rem 0 3rem;
+        .nav{
+            @include mediaq($md){
+                display: none;
+            }
+            .nav-link{
+                color: $light;
+                font-weight: 500;
+                transition: 0.3s;
+                &.active,&:hover{
+                    color: $black;
+                }
+            }
+        }
+    }
+    .page-title{
+        padding: 3rem 2rem;
+        background-color: $blue;
+        margin-bottom: 2rem;
+    }
+    article{
+        h4,h3,h2,h1,h5{
+            font-weight: 500;
+            color: $black;
+            margin-bottom: 1.5rem;
+        }
+        p, li{
+            color: $body-color;
+            line-height: 1.666;
+        }
+        ul{margin-bottom: 2rem;}
+        p{margin-bottom: 2.5rem}
+        blockquote{
+            padding: 1.5rem;
+            background: rgba($grey, 0.05);
+            margin-bottom: 2rem;
+        }
+        table{
+            margin-bottom: 2rem;
+        }
+        picture{
+            img{
+                max-width: 100%;
+                margin-bottom: 2rem;
+
+            }
+        }
+    }
+}
+
+/////////// contact page
+.contact{
+    padding: 100px 0 120px;
+    .contact-left{
+        background: $blue;
+        padding: 45px 30px;
+        a{
+            color: $white;
+        }
+        .page-header{
+            font-size: 2rem;
+            font-weight: 500;
+        }
+    }
+    .inner{
+        padding: 45px 20px;
+        @include mediaq($sm){
+            padding: 30px 8px;
+
+        }
+        .page-header{
+            font-size: 2.15rem;
+            font-weight: 500;
+        }
+        form{
+            .form-control{
+                @include mediaq($md){
+                    margin-bottom: 1.5rem;
+                }
+            }
+            input,textarea{
+                border: 0;
+                border-bottom: 1px solid $light;
+                &:focus{
+                    box-shadow: none;
+                    border-color: $blue;
+                }
+            }
         }
     }
 }

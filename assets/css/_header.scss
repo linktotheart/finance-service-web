@@ -62,7 +62,7 @@ header {
         justify-content: center;
         align-items: center;
         padding: 0;
-        right: 1rem;
+        right: 0rem;
         top: 1rem;
         z-index: 9999;
         .line {
@@ -135,25 +135,27 @@ header {
   }
 
   .mega-menu {
+    visibility: hidden;
+
     position: fixed;
     top: 0;
     right: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: $purple;
+    background-color: $white;
     transition: 0.75s ease;
-    z-index: 99;
-    transform: translateY(-100%) scale(0.1);
+    z-index: -99;
+    transform: translateX(100%);
     transform-origin: right;
-    visibility: hidden;
     pointer-events: none;
-    border-radius: 50%;
     &.show {
-      transform: translateY(0%) scale(1);
+      transform: translateX(0%);
       visibility: visible;
       pointer-events: all;
-      border-radius: 0px;
+      z-index: 99;
+      background-color: $purple;
+
     }
 
     .mega-inner {
